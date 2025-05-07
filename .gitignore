@@ -1,0 +1,17 @@
+ # Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.so
+
+# Virtual environment
+.venv/
+.env
+
+# Docker
+docker-compose.override.yml
+.DS_Store
+
+# IDE/Editor
+.idea/
