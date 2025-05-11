@@ -13,7 +13,7 @@ services:
       - .env
     environment:
       FLASK_ENV: development
-      DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
+      DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DATABASE_NAME}
 
   db:
     image: postgres:15
@@ -21,7 +21,7 @@ services:
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_DB: ${DATABASE_NAME}
     ports:
       - "5433:5432"
     volumes:

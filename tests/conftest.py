@@ -1,15 +1,16 @@
 import pytest
 from app import create_app
 from src.model.models import db
-
+from src.config import Config
 
 @pytest.fixture(scope="session")
 def app():
     app = create_app()
     app.config.update({
         "TESTING": True,
-        "SQLALCHEMY_DATABASE_URI": "postgresql://postgres:postgres@localhost:5432/test",
-        "SQLALCHEMY_TRACK_MODIFICATIONS": False,
+        # "SQLALCHEMY_DATABASE_URI": "postgresql://postgres:postgres@localhost:5432/test",
+        "SQLALCHEMY_DATABASE_URI": Config.SQLALCHEMY_DATABASE_URI,
+        "SQLALCHEMY_TRACK_MODIFICATIONS": Config.SQLALCHEMY_TRACK_MODIFICATIONS,
     })
 
     with app.app_context():
